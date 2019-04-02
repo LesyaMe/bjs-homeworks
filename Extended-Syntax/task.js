@@ -10,10 +10,25 @@ function calculateQuadraticEquation(){
     span.textContent = "х = "+result;
 }
 
-function getResult(a,b,c){
-    // код для задачи №1 писать здесь
-    //return x;
+function getResult(a,b,c){ //первая задача
+    let discriminant = Math.pow(b, 2) - 4 * a *c;
+      if (discriminant < 0) {
+       console.log('Нет корня');
+    } else if (discriminant == 0) {
+       let x = (( -b + Math.sqrt(discriminant)) / (2 * a));
+       console.log('Один корень ${x}');
+    return x;
+    } else {
+       x.push(( -b + Math.sqrt(discriminant)) / (2 * a));
+       x.push(( -b - Math.sqrt(discriminant)) / (2 * a));
+       console.log (`Корни: ${x}`)
 }
+return discriminant;
+}
+
+//getResult(2,4,3);
+   //return x;
+
 
 function calculateDrinkTask(){
     let name = window.personName.value;
