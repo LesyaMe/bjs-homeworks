@@ -12,21 +12,24 @@ function calculateQuadraticEquation(){
 
 function getResult(a,b,c){ //первая задача
     let discriminant = Math.pow(b, 2) - 4 * a *c;
+    let x = [];
       if (discriminant < 0) {
        console.log('Нет корня');
+    return x;
     } else if (discriminant == 0) {
-       let x = (( -b + Math.sqrt(discriminant)) / (2 * a));
-       console.log('Один корень ${x}');
+       x.push(( -b + Math.sqrt(discriminant)) / (2 * a));
+       console.log(`Один корень ${x}`);
     return x;
     } else {
        x.push(( -b + Math.sqrt(discriminant)) / (2 * a));
        x.push(( -b - Math.sqrt(discriminant)) / (2 * a));
-       console.log (`Корни: ${x}`)
+       console.log (discriminant);
+       console.log (`Корни: ${x}`);
 }
-return discriminant;
+return x;
 }
 
-//getResult(2,4,3);
+getResult(2,4,3);
    //return x;
 
 
@@ -37,11 +40,23 @@ function calculateDrinkTask(){
     window.drink.textContent = drink;
 }
 
-function askDrink(name,dateOfBirthday){
-    // код для задачи №2 писать здесь
-    //console.log(result)
-    //return result;
-}
+function askDrink(name,dateOfBirthday){ //вторая задача
+    let today = new Date();
+    //let myBirth = new Date(1234, 08, 28);
+    let age = today.getFullYear() - dateOfBirthday.getFullYear();
+  
+    console.log(`Возраст гостя : ${age}`);
+  
+  if (age >= 18) {
+    result = `Не желаете ли олд-фэшн, ${name}?`;
+  } else {
+    result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+  }
+  console.log(result)
+    return result;
+} 
+    
+
 
 function calculateAverageRating(){
     let marks = window.marks.value.split("").map(Number).filter((n)=> !isNaN(n) && n > 0);
@@ -49,7 +64,14 @@ function calculateAverageRating(){
     window.averageMark.textContent = averageMark;
 }
 
-function getAverageMark(marks){
-    // код для задачи №3 писать здесь
-    //return averageMark;
+function getAverageMark(marks){ //задача 3
+	if (marks.length > 5) {
+      marks.length = 5; //укоротить до 5ти элементов
+      console.log('Введено больше пяти оценок');
+    }
+
+    let result = marks.reduce(function(sum, current) {
+      return sum + current;
+    }); 
+    return 'Средний балл: ' + result / marks.length ;
 }
