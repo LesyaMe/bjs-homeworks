@@ -7,7 +7,19 @@ function initCheckBirthday() {
 }
 
 function checkBirthday(birthday) {
-    // код для задачи №1 писать здесь
+    let now = +new Date();
+    let birthday1 = +new Date(birthday);
+
+    let diff = now - birthday1;
+
+    let msInYear = (31536000000 * 3 + 31622400000) / 4;
+    let age = diff / msInYear;
+
+    if (age > 18) {
+      return true;
+    } else {
+      return false;
+    }
 }
 
 function initPrintAnimalSound() {
