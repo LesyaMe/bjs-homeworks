@@ -8,12 +8,12 @@ function initCheckBirthday() {
 
 function checkBirthday(birthday) {
     let now = +new Date();
-    let birthday1 = +new Date(birthday);
+    let clientsBirthday = +new Date(birthday);
 
-    let diff = now - birthday1;
+    let diff = now - clientsBirthday;
 
-    let msInYear = (31536000000 * 3 + 31622400000) / 4;
-    let age = diff / msInYear;
+    let millisecondsInYear = 365.25 * 24 * 60 * 60 * 1000;
+    let age = diff / millisecondsInYear;
 
     if (age > 18) {
       return true;
@@ -34,6 +34,12 @@ function initPrintAnimalSound() {
 
 function getAnimalSound(animal) {
     // код для задачи №2 писать здесь
+    this.sound = animal.sound;
+    if (animal === undefined) {
+    	return null;
+    } else {
+    	return sound;
+    }
 }
 
 function initCalculateStatement() {
@@ -48,4 +54,15 @@ function initCalculateStatement() {
 
 function getAverageMark(marks) {
     // код для задачи №3 писать здесь
+    if (marks.length > 5) {
+      marks.length = 5; //укоротить до 5ти элементов
+      console.log('Введено больше пяти оценок');
+    }
+
+    let marksLikeArray = Object.values(marks);
+   let marksSum = marksLikeArray.reduce(function(sum, current) {
+      return sum + current;
+    }, 0); 
+    let average = (marksSum /  marksLikeArray.length);
+    return Math.round(average);
 }
