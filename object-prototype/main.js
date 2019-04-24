@@ -59,10 +59,15 @@ function getAverageMark(marks) {
       console.log('Введено больше пяти оценок');
     }
 
-    let marksLikeArray = Object.values(marks);
-   let marksSum = marksLikeArray.reduce(function(sum, current) {
+    let marksArray = [];
+    (new Object (marks.split(','))).forEach(function(mark){
+    	marksArray.push(parseInt(mark));
+    });
+
+    
+   let marksSum = marksArray.reduce(function(sum, current) {
       return sum + current;
     }, 0); 
-    let average = (marksSum /  marksLikeArray.length);
+    let average = (marksSum /  marksArray.length);
     return Math.round(average);
 }
