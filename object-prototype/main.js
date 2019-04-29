@@ -60,7 +60,7 @@ function getAverageMark(marks) {
     }
 
     let marksArray = [];
-    (new Object (marks.split(','))).forEach(function(mark){
+    marks.forEach(function(mark){
     	marksArray.push(parseInt(mark));
     });
 
